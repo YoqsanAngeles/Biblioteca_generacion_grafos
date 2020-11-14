@@ -29,18 +29,16 @@ public class Principal {
      */
 
     public static void main(String[] args) {
-        //int [][] matriz1 = new int[2][2]; //ambas son equivalentes
-        
+         
        Grafo g;
        g = new Grafo();
-       g.grafosER(500,10000);
-       g.grafosGilbert(500,0.5);
+       g.grafosER(500,1000);
+       g.grafosGilbert(500,0.1);
        g.grafosGeografico(500,0.5);
        g.grafosBarabasi(500,4);
        
-       
     }
-
+    
  
 
 }

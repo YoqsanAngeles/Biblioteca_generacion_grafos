@@ -61,7 +61,7 @@ public class Grafo {
         for (int i=0;i<n;i++){
          for (int j=0;j<n;j++){
              proba = Math.random();
-             int bo = repetidosdin(matriz1,i,j);
+             int bo = repetidosdin(matriz1,i+1,j+1);
              if ((proba <= p)&&(i != j)&&(bo==0)) {
                  matriz1[0].add(i+1);
                  matriz1[1].add(j+1);
@@ -104,7 +104,8 @@ public class Grafo {
               double x2 = coordenadas[j][0];
               double y2 = coordenadas[j][1];
               distancia = Math.sqrt(Math.pow(x1-x2,2)+ Math.pow(y1-y2,2));
-             if ((distancia<=r)&&(i != j)) {
+              int bo = repetidosdin(matriz1,i+1,j+1);
+              if ((distancia<=r)&&(i != j)&&(bo==0)) {
                  matriz1[0].add(i+1);
                  matriz1[1].add(j+1);
               }
@@ -251,14 +252,9 @@ public class Grafo {
         for (int j = 0; j < matriz[0].size(); j++) {
                 int num1 = matriz[0].get(j);
                 int num2 = matriz[1].get(j);
-                if((num1==n1)&&(num2==n2)){
+                if(((num1==n1)&&(num2==n2)) || ((num1==n2)&&(num2==n1))){
                     n = 1;
                 }
-                if((num1==n2)&&(num2==n1)){
-                    n=1;
-                }
-                //System.out.print(al[0].get(j) + " ");
-                //System.out.print(al[1].get(j) + "\n");
             } 
         return n;
     }
